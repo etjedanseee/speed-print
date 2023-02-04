@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home'
+import Playground from './pages/Playground'
+import './index.css';
+import Results from './pages/Results';
+
 
 function App() {
+  const [words, setWords] = useState([])
+  //закончить с результатами
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home setWords={setWords} />} />
+      <Route path='/play' element={<Playground words={words} />} />
+      <Route path='/results' element={<Results />} />
+    </Routes>
   );
 }
 
 export default App;
+
+
