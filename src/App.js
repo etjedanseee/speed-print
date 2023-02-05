@@ -8,12 +8,17 @@ import Results from './pages/Results';
 
 function App() {
   const [words, setWords] = useState([])
-  //закончить с результатами
+  const [results, setResults] = useState({ wordsCount: 0, symbolsCount: 0, errorsCount: 0, minutes: 0, seconds: 0 })
+
+  const getResultsApp = (data) => {
+    setResults(data)
+  }
+
   return (
     <Routes>
       <Route path='/' element={<Home setWords={setWords} />} />
-      <Route path='/play' element={<Playground words={words} />} />
-      <Route path='/results' element={<Results />} />
+      <Route path='/play' element={<Playground words={words} getResultsApp={getResultsApp} />} />
+      <Route path='/results' element={<Results {...results} />} />
     </Routes>
   );
 }

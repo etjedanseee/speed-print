@@ -21,9 +21,9 @@ const WordsForm = ({ onGenerateText }) => {
           placeholder='Change count of words'
           className='text-lg px-3 py-2 outline-slate-600  rounded-md w-full  placeholder:tracking-wide placeholder:text-black'
         />
-        {errors.count?.type === 'required' && <div className='text-red-600 absolute'>Count is required!</div>}
-        {errors.count?.type === 'pattern' && <div className='text-red-600 absolute'>Count must be a number</div>}
-        {(errors.count?.type === 'min' || errors.count?.type === 'max') && <div className='text-red-600 absolute'>Count should be greater than 5 and less than 500</div>}
+        {errors.count?.type === 'required' && <div className='text-red-500 font-medium absolute'>Count is required!</div>}
+        {errors.count?.type === 'pattern' && <div className='text-red-500 font-medium absolute'>Count must be a number</div>}
+        {(errors.count?.type === 'min' || errors.count?.type === 'max') && <div className='text-red-500 font-medium absolute'>Count should be greater than 5 and less than 500</div>}
       </div>
 
       <div className='text-2xl mt-6 mb-2'>You can change the language</div>

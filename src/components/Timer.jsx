@@ -1,9 +1,10 @@
 import React from 'react'
 import TimerIcon from '../assets/timer-icon.svg'
+import { msToMinutes, msToSeconds } from '../utils/convertMs';
 
 const Timer = ({ time }) => {
-  const minutes = Math.floor(time / 60000).toFixed(0);
-  const seconds = ((time % 60000) / 1000).toFixed(0);
+  const minutes = msToMinutes(time)
+  const seconds = msToSeconds(time)
 
   return (
     <div className='text-xl font-medium border-2 border-emerald-600 px-4 py-1'>

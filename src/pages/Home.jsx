@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import WordsForm from '../components/WordsForm'
 import SuccessModal from '../Ui/SuccessModal';
 import { fetchWords } from '../utils/fetchWords';
+
 const Home = ({ setWords }) => {
   const navigate = useNavigate();
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -10,7 +11,7 @@ const Home = ({ setWords }) => {
   const onGenerateText = (count, lang) => {
     const getData = async () => {
       const wordsArray = await fetchWords(count, lang)
-      setWords(wordsArray.join(' ').split(''))
+      setWords(wordsArray.join(' ').toLowerCase().split(''))
     }
     getData()
     setIsModalVisible(true)
